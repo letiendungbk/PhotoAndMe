@@ -28,6 +28,7 @@
     [Parse setApplicationId:@"SGwWrNeOkEDR3paQ9pVVh9pSxKUZUESkAJVBCmHp"
                   clientKey:@"cftHNKCIxhSOVp9YqiJ9mmC5JGhtDZJq82dzLC6Y"];
     
+    //test push
     
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
