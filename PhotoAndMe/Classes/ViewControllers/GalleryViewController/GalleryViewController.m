@@ -93,6 +93,7 @@
     galleryItemView = (GalleryItemView *)[cell viewWithTag:789];
     galleryItemView.data = [self.categories objectAtIndex:indexPath.row];
     
+    
     return cell;
 }
 
