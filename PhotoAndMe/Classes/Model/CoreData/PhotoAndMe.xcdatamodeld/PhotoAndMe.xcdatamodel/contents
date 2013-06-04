@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2061" systemVersion="12D78" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Categories" representedClassName="Categories" syncable="YES">
+        <attribute name="displayName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="parseObjectId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="thumbFileURL" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="photoFrames" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PhotoFrames" inverseName="categories" inverseEntity="PhotoFrames" syncable="YES"/>
+    </entity>
+    <entity name="PhotoFrames" representedClassName="PhotoFrames" syncable="YES">
+        <attribute name="displayName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="frameRect" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="parseObjectId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="photoFileURL" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="categories" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Categories" inverseName="photoFrames" inverseEntity="Categories" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Categories" positionX="-63" positionY="-27" width="128" height="103"/>
+        <element name="PhotoFrames" positionX="169" positionY="18" width="128" height="118"/>
+    </elements>
+</model>

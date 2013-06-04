@@ -36,6 +36,12 @@
 		34C0CD16175B4F3200F8BCED /* PhotoFrameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34C0CD12175B4F3200F8BCED /* PhotoFrameViewController.m */; };
 		34C0CD17175B4F3200F8BCED /* PhotoFrameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34C0CD13175B4F3200F8BCED /* PhotoFrameViewController.xib */; };
 		34C0CD1B175B53BF00F8BCED /* AppModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 34C0CD1A175B53BF00F8BCED /* AppModel.m */; };
+		34D72476175E20890088D3D5 /* AppModel+Parse.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D72475175E20890088D3D5 /* AppModel+Parse.m */; };
+		34D72478175E26170088D3D5 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34D72477175E26170088D3D5 /* CoreData.framework */; };
+		34D7247C175E26590088D3D5 /* PhotoAndMe.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 34D7247A175E26590088D3D5 /* PhotoAndMe.xcdatamodeld */; };
+		34D7248B175E2BAA0088D3D5 /* AppModel+CoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D7248A175E2BAA0088D3D5 /* AppModel+CoreData.m */; };
+		34D7248E175E34A00088D3D5 /* Categories.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D7248D175E34A00088D3D5 /* Categories.m */; };
+		34D72491175E34A10088D3D5 /* PhotoFrames.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D72490175E34A10088D3D5 /* PhotoFrames.m */; };
 		34ECED78175A566800B5A17E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34ECED77175A566800B5A17E /* UIKit.framework */; };
 		34ECED7A175A566800B5A17E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34ECED79175A566800B5A17E /* Foundation.framework */; };
 		34ECED7C175A566800B5A17E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34ECED7B175A566800B5A17E /* CoreGraphics.framework */; };
@@ -85,6 +91,16 @@
 		34C0CD13175B4F3200F8BCED /* PhotoFrameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoFrameViewController.xib; sourceTree = "<group>"; };
 		34C0CD19175B53BF00F8BCED /* AppModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppModel.h; sourceTree = "<group>"; };
 		34C0CD1A175B53BF00F8BCED /* AppModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppModel.m; sourceTree = "<group>"; };
+		34D72474175E20890088D3D5 /* AppModel+Parse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppModel+Parse.h"; sourceTree = "<group>"; };
+		34D72475175E20890088D3D5 /* AppModel+Parse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppModel+Parse.m"; sourceTree = "<group>"; };
+		34D72477175E26170088D3D5 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		34D7247B175E26590088D3D5 /* PhotoAndMe.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PhotoAndMe.xcdatamodel; sourceTree = "<group>"; };
+		34D72489175E2BAA0088D3D5 /* AppModel+CoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppModel+CoreData.h"; sourceTree = "<group>"; };
+		34D7248A175E2BAA0088D3D5 /* AppModel+CoreData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppModel+CoreData.m"; sourceTree = "<group>"; };
+		34D7248C175E34A00088D3D5 /* Categories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Categories.h; sourceTree = "<group>"; };
+		34D7248D175E34A00088D3D5 /* Categories.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Categories.m; sourceTree = "<group>"; };
+		34D7248F175E34A10088D3D5 /* PhotoFrames.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoFrames.h; sourceTree = "<group>"; };
+		34D72490175E34A10088D3D5 /* PhotoFrames.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoFrames.m; sourceTree = "<group>"; };
 		34ECED74175A566800B5A17E /* PhotoAndMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoAndMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34ECED77175A566800B5A17E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		34ECED79175A566800B5A17E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -103,6 +119,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34D72478175E26170088D3D5 /* CoreData.framework in Frameworks */,
 				34C0CCDC175B43B300F8BCED /* Accounts.framework in Frameworks */,
 				34C0CCDA175B43A800F8BCED /* Social.framework in Frameworks */,
 				34C0CCD8175B439C00F8BCED /* AdSupport.framework in Frameworks */,
@@ -229,15 +246,33 @@
 		34C0CD18175B53BF00F8BCED /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				34D72479175E263B0088D3D5 /* CoreData */,
 				34C0CD19175B53BF00F8BCED /* AppModel.h */,
 				34C0CD1A175B53BF00F8BCED /* AppModel.m */,
+				34D72474175E20890088D3D5 /* AppModel+Parse.h */,
+				34D72475175E20890088D3D5 /* AppModel+Parse.m */,
+				34D72489175E2BAA0088D3D5 /* AppModel+CoreData.h */,
+				34D7248A175E2BAA0088D3D5 /* AppModel+CoreData.m */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		34D72479175E263B0088D3D5 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				34D7247A175E26590088D3D5 /* PhotoAndMe.xcdatamodeld */,
+				34D7248C175E34A00088D3D5 /* Categories.h */,
+				34D7248D175E34A00088D3D5 /* Categories.m */,
+				34D7248F175E34A10088D3D5 /* PhotoFrames.h */,
+				34D72490175E34A10088D3D5 /* PhotoFrames.m */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 		34ECED6B175A566800B5A17E = {
 			isa = PBXGroup;
 			children = (
+				34D72477175E26170088D3D5 /* CoreData.framework */,
 				34C0CCDB175B43B300F8BCED /* Accounts.framework */,
 				34C0CCD9175B43A800F8BCED /* Social.framework */,
 				34C0CCD7175B439C00F8BCED /* AdSupport.framework */,
@@ -382,6 +417,11 @@
 				34C0CD14175B4F3200F8BCED /* PhotoFrameItemView.m in Sources */,
 				34C0CD16175B4F3200F8BCED /* PhotoFrameViewController.m in Sources */,
 				34C0CD1B175B53BF00F8BCED /* AppModel.m in Sources */,
+				34D72476175E20890088D3D5 /* AppModel+Parse.m in Sources */,
+				34D7247C175E26590088D3D5 /* PhotoAndMe.xcdatamodeld in Sources */,
+				34D7248B175E2BAA0088D3D5 /* AppModel+CoreData.m in Sources */,
+				34D7248E175E34A00088D3D5 /* Categories.m in Sources */,
+				34D72491175E34A10088D3D5 /* PhotoFrames.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -509,6 +549,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		34D7247A175E26590088D3D5 /* PhotoAndMe.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				34D7247B175E26590088D3D5 /* PhotoAndMe.xcdatamodel */,
+			);
+			currentVersion = 34D7247B175E26590088D3D5 /* PhotoAndMe.xcdatamodel */;
+			path = PhotoAndMe.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 34ECED6C175A566800B5A17E /* Project object */;
 }

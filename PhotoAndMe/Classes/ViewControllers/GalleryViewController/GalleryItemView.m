@@ -35,18 +35,17 @@
 #pragma mark -
 #pragma mark Setup Data
 
-- (void)setData:(NSDictionary *)data
+- (void)setData:(Categories *)data
 {
     _data = data;
     
     if(_data == (id)[NSNull null])return;
     
-    PFFile *thumbFile = [_data objectForKey:@"thumbFile"];
     
     self.thumbImage.imageView.image = nil;
-    [self.thumbImage loadImageFromUrlString: thumbFile.url];
+    [self.thumbImage loadImageFromUrlString: _data.thumbFileURL];
     
-    self.nameLabel.text = [_data objectForKey:@"displayName"];
+    self.nameLabel.text = _data.displayName;
 }
 
 #pragma mark -

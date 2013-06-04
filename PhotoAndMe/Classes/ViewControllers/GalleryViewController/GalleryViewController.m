@@ -10,6 +10,11 @@
 #import "GalleryItemView.h"
 #import "PhotoFrameViewController.h"
 #import "AppModel.h"
+#import "AppModel+Parse.h"
+#import "AppModel+CoreData.h"
+#import "AppDelegate.h"
+#import "Categories.h"
+#import "PhotoFrames.h"
 #import <Parse/Parse.h>
 
 @interface GalleryViewController ()
@@ -46,33 +51,23 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    
-    
-    [[AppModel getInstance] loadCategoriesWithCallback:^(NSArray *objects, NSError *error) {
-        if (!error) {
-            NSLog(@"loadGalleryWithCallback success");
-            
-            [self saveToCoreData:objects];
-            
-            self.categories = objects;
-            [self.tableView reloadData];
-        } else {
-            NSLog(@"loadGalleryWithCallback %@ %@", error, [error userInfo]);
-        }
-    }];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(modelChangeHandler) name:ModelChangeNotification object:nil];
+    [[AppModel getInstance] syncCategories];
 }
 
-- (void)saveToCoreData:(NSArray *)categories
+- (void)modelChangeHandler
 {
-    for (PFObject *row in categories) {
-        //must store parseObjectId as a field in Core Data
-        NSLog(@"objectId:%@", row.objectId);
-        
-        NSLog(@"displayName:%@", [row objectForKey:@"displayName"]);
-        
-        PFFile *thumbFile = [row objectForKey:@"thumbFile"];
-        NSLog(@"thumbFileURL:%@", thumbFile.url);
-    }
+    AppDelegate* appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Categories"
+                                              inManagedObjectContext:appDelegate.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    NSError *error;
+    self.categories = [appDelegate.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    [self.tableView reloadData];
+    
+    [fetchRequest release];
 }
 
 - (NSString *)title
@@ -118,7 +113,9 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     PhotoFrameViewController *photoFrameViewController = [[PhotoFrameViewController alloc] initWithNibName:@"PhotoFrameViewController" bundle:nil];
-    photoFrameViewController.categoryParseObjectId = ((PFObject *)[self.categories objectAtIndex:indexPath.row]).objectId;
+    
+    Categories *selectedCategory = (Categories *)[self.categories objectAtIndex:indexPath.row];
+    photoFrameViewController.categoryParseObjectId = selectedCategory.parseObjectId;
     
     [self.navigationController pushViewController:photoFrameViewController animated:YES];
     [photoFrameViewController release];

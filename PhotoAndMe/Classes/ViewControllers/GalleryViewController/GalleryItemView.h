@@ -8,6 +8,7 @@
 
 #import "ViewLoadedFromNib.h"
 #import "LazyImageView.h"
+#import "Categories.h"
 
 @interface GalleryItemView : ViewLoadedFromNib <LazyImageViewDelegate>
 {
@@ -16,6 +17,6 @@
 @property (retain, nonatomic) IBOutlet LazyImageView *thumbImage;
 @property (retain, nonatomic) IBOutlet UILabel *nameLabel;
 
-@property (nonatomic, strong) NSDictionary* data;
+@property (nonatomic, strong) Categories * data;
 
 @end

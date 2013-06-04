@@ -9,6 +9,11 @@
 #import "PhotoFrameViewController.h"
 #import "PhotoFrameItemView.h"
 #import "AppModel.h"
+#import "AppModel+Parse.h"
+#import "AppModel+CoreData.h"
+#import "AppDelegate.h"
+#import "Categories.h"
+#import "PhotoFrames.h"
 #import <Parse/Parse.h>
 
 @interface PhotoFrameViewController ()
