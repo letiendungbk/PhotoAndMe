@@ -10,6 +10,7 @@
 #import "GalleryItemView.h"
 #import "PhotoFrameViewController.h"
 #import "AppModel.h"
+#import <Parse/Parse.h>
 
 @interface GalleryViewController ()
 
@@ -47,9 +48,12 @@
     
     
     
-    [[AppModel getInstance] loadGalleryWithCallback:^(NSArray *objects, NSError *error) {
+    [[AppModel getInstance] loadCategoriesWithCallback:^(NSArray *objects, NSError *error) {
         if (!error) {
             NSLog(@"loadGalleryWithCallback success");
+            
+            [self saveToCoreData:objects];
+            
             self.categories = objects;
             [self.tableView reloadData];
         } else {
@@ -58,6 +62,18 @@
     }];
 }
 
+- (void)saveToCoreData:(NSArray *)categories
+{
+    for (PFObject *row in categories) {
+        //must store parseObjectId as a field in Core Data
+        NSLog(@"objectId:%@", row.objectId);
+        
+        NSLog(@"displayName:%@", [row objectForKey:@"displayName"]);
+        
+        PFFile *thumbFile = [row objectForKey:@"thumbFile"];
+        NSLog(@"thumbFileURL:%@", thumbFile.url);
+    }
+}
 
 - (NSString *)title
 {
@@ -101,7 +117,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     PhotoFrameViewController *photoFrameViewController = [[PhotoFrameViewController alloc] initWithNibName:@"PhotoFrameViewController" bundle:nil];
-    photoFrameViewController.categoryCode = [[self.categories objectAtIndex:indexPath.row] objectForKey:@"categoryCode"];
+    photoFrameViewController.categoryParseObjectId = ((PFObject *)[self.categories objectAtIndex:indexPath.row]).objectId;
     
     [self.navigationController pushViewController:photoFrameViewController animated:YES];
     [photoFrameViewController release];

@@ -8,6 +8,7 @@
 
 typedef void (^GalleryCallbackBlock)(NSArray *objects, NSError *error);
 typedef void (^PhotoFrameCallbackBlock)(NSArray *objects, NSError *error);
+typedef void (^ImageCallbackBlock)(UIImage *image, NSError *error);
 
 @interface AppModel : NSObject
 {
@@ -16,7 +17,10 @@ typedef void (^PhotoFrameCallbackBlock)(NSArray *objects, NSError *error);
 
 + (AppModel *)getInstance;
 
-- (void)loadGalleryWithCallback:(GalleryCallbackBlock)aCallbackBlock;
-- (void)loadPhotoFrameForCategory:(NSString *)categoryCode WithCallback:(PhotoFrameCallbackBlock)aCallbackBlock;
+- (void)loadCategoriesWithCallback:(GalleryCallbackBlock)aCallbackBlock;
+- (void)loadCategoriesFrom:(NSDate *)lastUpdateTime WithCallback:(GalleryCallbackBlock)aCallbackBlock;
+
+- (void)loadPhotoFrameForCategory:(NSString *)parseObjectId WithCallback:(PhotoFrameCallbackBlock)aCallbackBlock;
+- (void)loadPhotoFrameForCategory:(NSString *)parseObjectId From:(NSDate *)lastUpdateTime WithCallback:(PhotoFrameCallbackBlock)aCallbackBlock;
 
 @end

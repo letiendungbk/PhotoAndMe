@@ -7,6 +7,7 @@
 //
 
 #import "GalleryItemView.h"
+#import <Parse/Parse.h>
 
 @implementation GalleryItemView
 
@@ -40,9 +41,10 @@
     
     if(_data == (id)[NSNull null])return;
     
-    NSString *userUrl = [_data objectForKey:@"thumbURL"];
+    PFFile *thumbFile = [_data objectForKey:@"thumbFile"];
+    
     self.thumbImage.imageView.image = nil;
-    [self.thumbImage loadImageFromUrlString: userUrl];
+    [self.thumbImage loadImageFromUrlString: thumbFile.url];
     
     self.nameLabel.text = [_data objectForKey:@"displayName"];
 }

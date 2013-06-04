@@ -9,6 +9,7 @@
 #import "PhotoFrameViewController.h"
 #import "PhotoFrameItemView.h"
 #import "AppModel.h"
+#import <Parse/Parse.h>
 
 @interface PhotoFrameViewController ()
 
@@ -22,7 +23,7 @@
 {
     self.tableView = nil;
     self.photoFrames = nil;
-    self.categoryCode = nil;
+    self.categoryParseObjectId = nil;
     
     [super dealloc];
 }
@@ -30,7 +31,7 @@
 - (void)viewDidUnload {
     self.tableView = nil;
     self.photoFrames = nil;
-    self.categoryCode = nil;
+    self.categoryParseObjectId = nil;
     
     [super viewDidUnload];
 }
@@ -50,9 +51,12 @@
 //                        @{@"categoryCode":@"nature", @"displayName":@"Nature", @"photoURL":@"https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn1/50322_373165766042153_1840934980_q.jpg"}
 //                        ];
     
-    [[AppModel getInstance] loadPhotoFrameForCategory:self.categoryCode WithCallback:^(NSArray *objects, NSError *error) {
+    [[AppModel getInstance] loadPhotoFrameForCategory:self.categoryParseObjectId WithCallback:^(NSArray *objects, NSError *error) {
         if (!error) {
             NSLog(@"loadPhotoFrameForCategory success");
+            
+            [self saveToCoreData:objects];
+            
             self.photoFrames = objects;
             [self.tableView reloadData];
         } else {
@@ -62,9 +66,23 @@
 
 }
 
+- (void)saveToCoreData:(NSArray *)photoFrames
+{
+    for (PFObject *row in photoFrames) {
+        //must store parseObjectId as a field in Core Data
+        NSLog(@"objectId:%@", row.objectId);
+        
+        NSLog(@"displayName:%@", [row objectForKey:@"displayName"]);
+        PFFile *photoFile = [row objectForKey:@"photoFile"];
+        NSLog(@"photoFileURL:%@", photoFile.url);
+    }
+    
+}
+
+
 - (NSString *)title
 {
-    return self.categoryCode;
+    return self.categoryParseObjectId;
 }
 
 #pragma mark - UITableViewDataSource

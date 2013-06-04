@@ -13,7 +13,7 @@
     
 }
 
-@property (copy, nonatomic) NSString *categoryCode;
+@property (copy, nonatomic) NSString *categoryParseObjectId;
 
 @property (retain, nonatomic) IBOutlet UITableView *tableView;
 
