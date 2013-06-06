@@ -21,8 +21,6 @@
 		34C0CCDA175B43A800F8BCED /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34C0CCD9175B43A800F8BCED /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		34C0CCDC175B43B300F8BCED /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34C0CCDB175B43B300F8BCED /* Accounts.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		34C0CCF4175B450400F8BCED /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 34C0CCDF175B450400F8BCED /* AppDelegate.m */; };
-		34C0CCF9175B450400F8BCED /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34C0CCEA175B450400F8BCED /* ViewController.m */; };
-		34C0CCFA175B450400F8BCED /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34C0CCEB175B450400F8BCED /* ViewController.xib */; };
 		34C0CCFB175B450400F8BCED /* LazyImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 34C0CCEF175B450400F8BCED /* LazyImageView.m */; };
 		34C0CCFC175B450400F8BCED /* invaderzim.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 34C0CCF2175B450400F8BCED /* invaderzim.jpg */; };
 		34C0CCFD175B450400F8BCED /* invaderzim_smal.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 34C0CCF3175B450400F8BCED /* invaderzim_smal.jpg */; };
@@ -42,6 +40,12 @@
 		34D7248B175E2BAA0088D3D5 /* AppModel+CoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D7248A175E2BAA0088D3D5 /* AppModel+CoreData.m */; };
 		34D7248E175E34A00088D3D5 /* Categories.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D7248D175E34A00088D3D5 /* Categories.m */; };
 		34D72491175E34A10088D3D5 /* PhotoFrames.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D72490175E34A10088D3D5 /* PhotoFrames.m */; };
+		34E52F0017609D8E006D9DED /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34E52EFF17609D8E006D9DED /* OpenGLES.framework */; };
+		34E52F0317609EBD006D9DED /* texture.png in Resources */ = {isa = PBXBuildFile; fileRef = 34E52F0117609EBD006D9DED /* texture.png */; };
+		34E52F0417609EBD006D9DED /* nature.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 34E52F0217609EBD006D9DED /* nature.jpeg */; };
+		34E52F0D17609EC8006D9DED /* EffectGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 34E52F0817609EC8006D9DED /* EffectGLView.m */; };
+		34E52F0E17609EC8006D9DED /* EffectGLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34E52F0A17609EC8006D9DED /* EffectGLViewController.m */; };
+		34E52F0F17609EC8006D9DED /* EffectGLViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34E52F0B17609EC8006D9DED /* EffectGLViewController.xib */; };
 		34ECED78175A566800B5A17E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34ECED77175A566800B5A17E /* UIKit.framework */; };
 		34ECED7A175A566800B5A17E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34ECED79175A566800B5A17E /* Foundation.framework */; };
 		34ECED7C175A566800B5A17E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34ECED7B175A566800B5A17E /* CoreGraphics.framework */; };
@@ -68,9 +72,6 @@
 		34C0CCDB175B43B300F8BCED /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		34C0CCDE175B450400F8BCED /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		34C0CCDF175B450400F8BCED /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		34C0CCE9175B450400F8BCED /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		34C0CCEA175B450400F8BCED /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		34C0CCEB175B450400F8BCED /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
 		34C0CCEE175B450400F8BCED /* LazyImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LazyImageView.h; sourceTree = "<group>"; };
 		34C0CCEF175B450400F8BCED /* LazyImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LazyImageView.m; sourceTree = "<group>"; };
 		34C0CCF2175B450400F8BCED /* invaderzim.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = invaderzim.jpg; sourceTree = "<group>"; };
@@ -101,6 +102,16 @@
 		34D7248D175E34A00088D3D5 /* Categories.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Categories.m; sourceTree = "<group>"; };
 		34D7248F175E34A10088D3D5 /* PhotoFrames.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoFrames.h; sourceTree = "<group>"; };
 		34D72490175E34A10088D3D5 /* PhotoFrames.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoFrames.m; sourceTree = "<group>"; };
+		34E52EFF17609D8E006D9DED /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		34E52F0117609EBD006D9DED /* texture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = texture.png; sourceTree = "<group>"; };
+		34E52F0217609EBD006D9DED /* nature.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = nature.jpeg; sourceTree = "<group>"; };
+		34E52F0617609EC8006D9DED /* ConstantsAndMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConstantsAndMacros.h; sourceTree = "<group>"; };
+		34E52F0717609EC8006D9DED /* EffectGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EffectGLView.h; sourceTree = "<group>"; };
+		34E52F0817609EC8006D9DED /* EffectGLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EffectGLView.m; sourceTree = "<group>"; };
+		34E52F0917609EC8006D9DED /* EffectGLViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EffectGLViewController.h; sourceTree = "<group>"; };
+		34E52F0A17609EC8006D9DED /* EffectGLViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EffectGLViewController.m; sourceTree = "<group>"; };
+		34E52F0B17609EC8006D9DED /* EffectGLViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EffectGLViewController.xib; sourceTree = "<group>"; };
+		34E52F0C17609EC8006D9DED /* OpenGLCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenGLCommon.h; sourceTree = "<group>"; };
 		34ECED74175A566800B5A17E /* PhotoAndMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoAndMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34ECED77175A566800B5A17E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		34ECED79175A566800B5A17E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -119,6 +130,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34E52F0017609D8E006D9DED /* OpenGLES.framework in Frameworks */,
 				34D72478175E26170088D3D5 /* CoreData.framework in Frameworks */,
 				34C0CCDC175B43B300F8BCED /* Accounts.framework in Frameworks */,
 				34C0CCDA175B43A800F8BCED /* Social.framework in Frameworks */,
@@ -158,19 +170,9 @@
 			children = (
 				34C0CD02175B46A800F8BCED /* GalleryViewController */,
 				34C0CD0D175B4F3200F8BCED /* PhotoFrameViewController */,
-				34C0CCE8175B450400F8BCED /* ViewController */,
+				34E52F0517609EC8006D9DED /* EffectGLViewController */,
 			);
 			path = ViewControllers;
-			sourceTree = "<group>";
-		};
-		34C0CCE8175B450400F8BCED /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				34C0CCE9175B450400F8BCED /* ViewController.h */,
-				34C0CCEA175B450400F8BCED /* ViewController.m */,
-				34C0CCEB175B450400F8BCED /* ViewController.xib */,
-			);
-			path = ViewController;
 			sourceTree = "<group>";
 		};
 		34C0CCEC175B450400F8BCED /* Library */ = {
@@ -202,6 +204,8 @@
 		34C0CCF1175B450400F8BCED /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				34E52F0117609EBD006D9DED /* texture.png */,
+				34E52F0217609EBD006D9DED /* nature.jpeg */,
 				34C0CCF2175B450400F8BCED /* invaderzim.jpg */,
 				34C0CCF3175B450400F8BCED /* invaderzim_smal.jpg */,
 			);
@@ -269,9 +273,24 @@
 			path = CoreData;
 			sourceTree = "<group>";
 		};
+		34E52F0517609EC8006D9DED /* EffectGLViewController */ = {
+			isa = PBXGroup;
+			children = (
+				34E52F0617609EC8006D9DED /* ConstantsAndMacros.h */,
+				34E52F0717609EC8006D9DED /* EffectGLView.h */,
+				34E52F0817609EC8006D9DED /* EffectGLView.m */,
+				34E52F0917609EC8006D9DED /* EffectGLViewController.h */,
+				34E52F0A17609EC8006D9DED /* EffectGLViewController.m */,
+				34E52F0B17609EC8006D9DED /* EffectGLViewController.xib */,
+				34E52F0C17609EC8006D9DED /* OpenGLCommon.h */,
+			);
+			path = EffectGLViewController;
+			sourceTree = "<group>";
+		};
 		34ECED6B175A566800B5A17E = {
 			isa = PBXGroup;
 			children = (
+				34E52EFF17609D8E006D9DED /* OpenGLES.framework */,
 				34D72477175E26170088D3D5 /* CoreData.framework */,
 				34C0CCDB175B43B300F8BCED /* Accounts.framework */,
 				34C0CCD9175B43A800F8BCED /* Social.framework */,
@@ -390,13 +409,15 @@
 				34ECED8A175A566900B5A17E /* Default.png in Resources */,
 				34ECED8C175A566900B5A17E /* Default@2x.png in Resources */,
 				34ECED8E175A566900B5A17E /* Default-568h@2x.png in Resources */,
-				34C0CCFA175B450400F8BCED /* ViewController.xib in Resources */,
 				34C0CCFC175B450400F8BCED /* invaderzim.jpg in Resources */,
 				34C0CCFD175B450400F8BCED /* invaderzim_smal.jpg in Resources */,
 				34C0CD0A175B46A800F8BCED /* GalleryItemView.xib in Resources */,
 				34C0CD0C175B46A800F8BCED /* GalleryViewController.xib in Resources */,
 				34C0CD15175B4F3200F8BCED /* PhotoFrameItemView.xib in Resources */,
 				34C0CD17175B4F3200F8BCED /* PhotoFrameViewController.xib in Resources */,
+				34E52F0317609EBD006D9DED /* texture.png in Resources */,
+				34E52F0417609EBD006D9DED /* nature.jpeg in Resources */,
+				34E52F0F17609EC8006D9DED /* EffectGLViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,7 +430,6 @@
 			files = (
 				34ECED84175A566800B5A17E /* main.m in Sources */,
 				34C0CCF4175B450400F8BCED /* AppDelegate.m in Sources */,
-				34C0CCF9175B450400F8BCED /* ViewController.m in Sources */,
 				34C0CCFB175B450400F8BCED /* LazyImageView.m in Sources */,
 				34C0CD01175B469E00F8BCED /* ViewLoadedFromNib.m in Sources */,
 				34C0CD09175B46A800F8BCED /* GalleryItemView.m in Sources */,
@@ -422,6 +442,8 @@
 				34D7248B175E2BAA0088D3D5 /* AppModel+CoreData.m in Sources */,
 				34D7248E175E34A00088D3D5 /* Categories.m in Sources */,
 				34D72491175E34A10088D3D5 /* PhotoFrames.m in Sources */,
+				34E52F0D17609EC8006D9DED /* EffectGLView.m in Sources */,
+				34E52F0E17609EC8006D9DED /* EffectGLViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

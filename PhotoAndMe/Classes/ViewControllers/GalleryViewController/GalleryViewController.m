@@ -53,6 +53,8 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(modelChangeHandler) name:ModelChangeNotification object:nil];
     [[AppModel getInstance] syncCategories];
+    
+    [self modelChangeHandler];
 }
 
 - (void)modelChangeHandler

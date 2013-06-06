@@ -15,6 +15,7 @@
 #import "Categories.h"
 #import "PhotoFrames.h"
 #import <Parse/Parse.h>
+#import "EffectGLViewController.h"
 
 @interface PhotoFrameViewController ()
 
@@ -126,7 +127,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    EffectGLViewController *effectGLViewController = [[EffectGLViewController alloc] initWithNibName:@"EffectGLViewController" bundle:nil];
     
+    [self.navigationController pushViewController:effectGLViewController animated:YES];
+    [effectGLViewController release];
 }
 
 
