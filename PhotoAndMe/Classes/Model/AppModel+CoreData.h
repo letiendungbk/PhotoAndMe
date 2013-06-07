@@ -7,12 +7,13 @@
 //
 
 #import "AppModel.h"
-#import "Categories.h"
+#import "Category.h"
+#import "PhotoFrame.h"
 
 UIKIT_EXTERN NSString *const ModelChangeNotification;
 
 @interface AppModel (CoreData)
 
-- (void)syncCategories;
+- (void)startSync;
 
 @end

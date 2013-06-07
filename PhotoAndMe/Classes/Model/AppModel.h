@@ -14,5 +14,7 @@
 
 + (AppModel *)getInstance;
 
+@property (atomic, readwrite) BOOL syncInProgress;
+
 
 @end

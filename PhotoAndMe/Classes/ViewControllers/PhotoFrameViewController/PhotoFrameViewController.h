@@ -7,13 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Category.h"
 
 @interface PhotoFrameViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 {
     
 }
 
-@property (copy, nonatomic) NSString *categoryParseObjectId;
+@property (retain, nonatomic) Category *category;
 
 @property (retain, nonatomic) IBOutlet UITableView *tableView;
 

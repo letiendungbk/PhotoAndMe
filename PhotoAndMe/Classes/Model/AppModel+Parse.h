@@ -18,7 +18,8 @@ typedef void (^ImageCallbackBlock)(UIImage *image, NSError *error);
 - (void)loadCategoriesWithCallback:(GalleryCallbackBlock)aCallbackBlock;
 - (void)loadCategoriesFrom:(NSDate *)lastUpdateTime WithCallback:(GalleryCallbackBlock)aCallbackBlock;
 
-- (void)loadPhotoFrameForCategory:(NSString *)parseObjectId WithCallback:(PhotoFrameCallbackBlock)aCallbackBlock;
-- (void)loadPhotoFrameForCategory:(NSString *)parseObjectId From:(NSDate *)lastUpdateTime WithCallback:(PhotoFrameCallbackBlock)aCallbackBlock;
+- (void)loadAllPhotoFramesFrom:(NSDate *)lastUpdateTime WithCallback:(PhotoFrameCallbackBlock)aCallbackBlock;
+- (void)loadPhotoFramesForCategory:(NSString *)parseObjectId WithCallback:(PhotoFrameCallbackBlock)aCallbackBlock;
+- (void)loadPhotoFramesForCategory:(NSString *)parseObjectId From:(NSDate *)lastUpdateTime WithCallback:(PhotoFrameCallbackBlock)aCallbackBlock;
 
 @end

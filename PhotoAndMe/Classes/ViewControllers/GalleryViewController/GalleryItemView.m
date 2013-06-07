@@ -35,7 +35,7 @@
 #pragma mark -
 #pragma mark Setup Data
 
-- (void)setData:(Categories *)data
+- (void)setData:(Category *)data
 {
     _data = data;
     

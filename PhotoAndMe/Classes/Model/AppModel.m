@@ -12,6 +12,8 @@ static AppModel *sharedInstance = nil;
 
 @implementation AppModel
 
+@synthesize syncInProgress = _syncInProgress;   
+
 - (void)dealloc
 {
     [super dealloc];

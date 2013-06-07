@@ -10,12 +10,16 @@
 
 #import "GalleryViewController.h"
 #import <Parse/Parse.h>
+#import "AppModel+CoreData.h"
 
 @implementation AppDelegate
 
 @synthesize window = _window;
 @synthesize navigationController = _navigationController;
-@synthesize managedObjectContext = __managedObjectContext;
+
+@synthesize masterManagedObjectContext = _masterManagedObjectContext;
+@synthesize backgroundManagedObjectContext = _backgroundManagedObjectContext;
+@synthesize mainThreadManagedObjectContext = _mainThreadManagedObjectContext;
 @synthesize managedObjectModel = __managedObjectModel;
 @synthesize persistentStoreCoordinator = __persistentStoreCoordinator;
 
@@ -30,8 +34,6 @@
 {
     [Parse setApplicationId:@"SGwWrNeOkEDR3paQ9pVVh9pSxKUZUESkAJVBCmHp"
                   clientKey:@"cftHNKCIxhSOVp9YqiJ9mmC5JGhtDZJq82dzLC6Y"];
-    
-    //test push
     
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
@@ -65,47 +67,104 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    [[AppModel getInstance] startSync];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Saves changes in the application's managed object context before the application terminates.
-    [self saveContext];
-
+    
+    [self saveMainThreadContext];
+    [self saveMasterContext];
 }
 
-
-
-- (void)saveContext
-{
-    NSError *error = nil;
-    NSManagedObjectContext *managedObjectContext = self.managedObjectContext;
-    if (managedObjectContext != nil) {
-        if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error]) {
-            // Replace this implementation with code to handle the error appropriately.
-            // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-            abort();
-        }
-    }
-}
 
 #pragma mark - Core Data stack
 
 // Returns the managed object context for the application.
 // If the context doesn't already exist, it is created and bound to the persistent store coordinator for the application.
-- (NSManagedObjectContext *)managedObjectContext
-{
-    if (__managedObjectContext != nil) {
-        return __managedObjectContext;
+// Used to propegate saves to the persistent store (disk) without blocking the UI
+- (NSManagedObjectContext *)masterManagedObjectContext {
+    if (_masterManagedObjectContext != nil) {
+        return _masterManagedObjectContext;
     }
     
     NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];
     if (coordinator != nil) {
-        __managedObjectContext = [[NSManagedObjectContext alloc] init];
-        [__managedObjectContext setPersistentStoreCoordinator:coordinator];
+        _masterManagedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
+        [_masterManagedObjectContext performBlockAndWait:^{
+            [_masterManagedObjectContext setPersistentStoreCoordinator:coordinator];
+        }];
+        
     }
-    return __managedObjectContext;
+    return _masterManagedObjectContext;
+}
+
+// Return the NSManagedObjectContext to be used in the background during sync
+- (NSManagedObjectContext *)mainThreadManagedObjectContext {
+    if (_mainThreadManagedObjectContext != nil) {
+        return _mainThreadManagedObjectContext;
+    }
+    
+    NSManagedObjectContext *masterContext = [self masterManagedObjectContext];
+    if (masterContext != nil) {
+        _mainThreadManagedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
+        [_mainThreadManagedObjectContext performBlockAndWait:^{
+            [_mainThreadManagedObjectContext setParentContext:masterContext];
+        }];
+    }
+    
+    return _mainThreadManagedObjectContext;
+}
+
+// Return the NSManagedObjectContext to be used in the background during sync
+- (NSManagedObjectContext *)backgroundManagedObjectContext {
+    if (_backgroundManagedObjectContext != nil) {
+        return _backgroundManagedObjectContext;
+    }
+    
+    NSManagedObjectContext *masterContext = [self masterManagedObjectContext];
+    if (masterContext != nil) {
+        _backgroundManagedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
+        [_backgroundManagedObjectContext performBlockAndWait:^{
+            [_backgroundManagedObjectContext setParentContext:[self mainThreadManagedObjectContext]];
+        }];
+    }
+    
+    return _backgroundManagedObjectContext;
+}
+
+- (void)saveMasterContext {
+    [self.masterManagedObjectContext performBlockAndWait:^{
+        NSError *error = nil;
+        BOOL saved = [self.masterManagedObjectContext save:&error];
+        if (!saved) {
+            // do some real error handling
+            NSLog(@"Could not save master context due to %@", error);
+        }
+    }];
+}
+
+- (void)saveMainThreadContext {
+    [self.mainThreadManagedObjectContext performBlockAndWait:^{
+        NSError *error = nil;
+        BOOL saved = [self.mainThreadManagedObjectContext save:&error];
+        if (!saved) {
+            // do some real error handling
+            NSLog(@"Could not save main thread context due to %@", error);
+        }
+    }];
+}
+
+- (void)saveBackgroundContext {
+    [self.backgroundManagedObjectContext performBlockAndWait:^{
+        NSError *error = nil;
+        BOOL saved = [self.backgroundManagedObjectContext save:&error];
+        if (!saved) {
+            // do some real error handling
+            NSLog(@"Could not save background context due to %@", error);
+        }
+    }];
 }
 
 // Returns the managed object model for the application.
@@ -130,6 +189,15 @@
     
     NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"PhotoAndMe.sqlite"];
     
+    if (![[NSFileManager defaultManager] fileExistsAtPath:[storeURL path]]) {
+        NSURL *preloadURL = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"PhotoAndMe" ofType:@"sqlite"]];
+        NSError* err = nil;
+        
+        if (![[NSFileManager defaultManager] copyItemAtURL:preloadURL toURL:storeURL error:&err]) {
+            NSLog(@"Oops, could copy preloaded data");
+        }
+    }
+
     NSError *error = nil;
     __persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
     if (![__persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error]) {

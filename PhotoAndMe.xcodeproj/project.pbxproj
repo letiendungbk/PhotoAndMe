@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		340519D71761B90900FABD9B /* Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 340519D61761B90900FABD9B /* Category.m */; };
+		340519DA1761B90A00FABD9B /* PhotoFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 340519D91761B90A00FABD9B /* PhotoFrame.m */; };
+		340519DC1762131900FABD9B /* PhotoAndMe.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 340519DB1762131900FABD9B /* PhotoAndMe.sqlite */; };
 		34C0CCC4175B42CA00F8BCED /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34C0CCC3175B42CA00F8BCED /* Parse.framework */; };
 		34C0CCC6175B42E400F8BCED /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34C0CCC5175B42E400F8BCED /* AudioToolbox.framework */; };
 		34C0CCC8175B42ED00F8BCED /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34C0CCC7175B42ED00F8BCED /* CFNetwork.framework */; };
@@ -38,8 +41,6 @@
 		34D72478175E26170088D3D5 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34D72477175E26170088D3D5 /* CoreData.framework */; };
 		34D7247C175E26590088D3D5 /* PhotoAndMe.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 34D7247A175E26590088D3D5 /* PhotoAndMe.xcdatamodeld */; };
 		34D7248B175E2BAA0088D3D5 /* AppModel+CoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D7248A175E2BAA0088D3D5 /* AppModel+CoreData.m */; };
-		34D7248E175E34A00088D3D5 /* Categories.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D7248D175E34A00088D3D5 /* Categories.m */; };
-		34D72491175E34A10088D3D5 /* PhotoFrames.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D72490175E34A10088D3D5 /* PhotoFrames.m */; };
 		34E52F0017609D8E006D9DED /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34E52EFF17609D8E006D9DED /* OpenGLES.framework */; };
 		34E52F0317609EBD006D9DED /* texture.png in Resources */ = {isa = PBXBuildFile; fileRef = 34E52F0117609EBD006D9DED /* texture.png */; };
 		34E52F0417609EBD006D9DED /* nature.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 34E52F0217609EBD006D9DED /* nature.jpeg */; };
@@ -57,6 +58,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		340519D51761B90900FABD9B /* Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Category.h; sourceTree = "<group>"; };
+		340519D61761B90900FABD9B /* Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Category.m; sourceTree = "<group>"; };
+		340519D81761B90A00FABD9B /* PhotoFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoFrame.h; sourceTree = "<group>"; };
+		340519D91761B90A00FABD9B /* PhotoFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoFrame.m; sourceTree = "<group>"; };
+		340519DB1762131900FABD9B /* PhotoAndMe.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = PhotoAndMe.sqlite; sourceTree = "<group>"; };
 		34C0CCC3175B42CA00F8BCED /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		34C0CCC5175B42E400F8BCED /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		34C0CCC7175B42ED00F8BCED /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -98,10 +104,6 @@
 		34D7247B175E26590088D3D5 /* PhotoAndMe.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PhotoAndMe.xcdatamodel; sourceTree = "<group>"; };
 		34D72489175E2BAA0088D3D5 /* AppModel+CoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppModel+CoreData.h"; sourceTree = "<group>"; };
 		34D7248A175E2BAA0088D3D5 /* AppModel+CoreData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppModel+CoreData.m"; sourceTree = "<group>"; };
-		34D7248C175E34A00088D3D5 /* Categories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Categories.h; sourceTree = "<group>"; };
-		34D7248D175E34A00088D3D5 /* Categories.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Categories.m; sourceTree = "<group>"; };
-		34D7248F175E34A10088D3D5 /* PhotoFrames.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoFrames.h; sourceTree = "<group>"; };
-		34D72490175E34A10088D3D5 /* PhotoFrames.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoFrames.m; sourceTree = "<group>"; };
 		34E52EFF17609D8E006D9DED /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		34E52F0117609EBD006D9DED /* texture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = texture.png; sourceTree = "<group>"; };
 		34E52F0217609EBD006D9DED /* nature.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = nature.jpeg; sourceTree = "<group>"; };
@@ -265,10 +267,10 @@
 			isa = PBXGroup;
 			children = (
 				34D7247A175E26590088D3D5 /* PhotoAndMe.xcdatamodeld */,
-				34D7248C175E34A00088D3D5 /* Categories.h */,
-				34D7248D175E34A00088D3D5 /* Categories.m */,
-				34D7248F175E34A10088D3D5 /* PhotoFrames.h */,
-				34D72490175E34A10088D3D5 /* PhotoFrames.m */,
+				340519D51761B90900FABD9B /* Category.h */,
+				340519D61761B90900FABD9B /* Category.m */,
+				340519D81761B90A00FABD9B /* PhotoFrame.h */,
+				340519D91761B90A00FABD9B /* PhotoFrame.m */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -343,6 +345,7 @@
 		34ECED7E175A566800B5A17E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				340519DB1762131900FABD9B /* PhotoAndMe.sqlite */,
 				34ECED7F175A566800B5A17E /* PhotoAndMe-Info.plist */,
 				34ECED80175A566800B5A17E /* InfoPlist.strings */,
 				34ECED83175A566800B5A17E /* main.m */,
@@ -418,6 +421,7 @@
 				34E52F0317609EBD006D9DED /* texture.png in Resources */,
 				34E52F0417609EBD006D9DED /* nature.jpeg in Resources */,
 				34E52F0F17609EC8006D9DED /* EffectGLViewController.xib in Resources */,
+				340519DC1762131900FABD9B /* PhotoAndMe.sqlite in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -440,10 +444,10 @@
 				34D72476175E20890088D3D5 /* AppModel+Parse.m in Sources */,
 				34D7247C175E26590088D3D5 /* PhotoAndMe.xcdatamodeld in Sources */,
 				34D7248B175E2BAA0088D3D5 /* AppModel+CoreData.m in Sources */,
-				34D7248E175E34A00088D3D5 /* Categories.m in Sources */,
-				34D72491175E34A10088D3D5 /* PhotoFrames.m in Sources */,
 				34E52F0D17609EC8006D9DED /* EffectGLView.m in Sources */,
 				34E52F0E17609EC8006D9DED /* EffectGLViewController.m in Sources */,
+				340519D71761B90900FABD9B /* Category.m in Sources */,
+				340519DA1761B90A00FABD9B /* PhotoFrame.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

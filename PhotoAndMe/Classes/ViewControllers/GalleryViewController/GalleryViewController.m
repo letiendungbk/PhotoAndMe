@@ -13,8 +13,8 @@
 #import "AppModel+Parse.h"
 #import "AppModel+CoreData.h"
 #import "AppDelegate.h"
-#import "Categories.h"
-#import "PhotoFrames.h"
+#import "Category.h"
+#import "PhotoFrame.h"
 #import <Parse/Parse.h>
 
 @interface GalleryViewController ()
@@ -52,7 +52,6 @@
     // Do any additional setup after loading the view from its nib.
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(modelChangeHandler) name:ModelChangeNotification object:nil];
-    [[AppModel getInstance] syncCategories];
     
     [self modelChangeHandler];
 }
@@ -62,11 +61,18 @@
     AppDelegate* appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Categories"
-                                              inManagedObjectContext:appDelegate.managedObjectContext];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Category"
+                                              inManagedObjectContext:appDelegate.mainThreadManagedObjectContext];
     [fetchRequest setEntity:entity];
-    NSError *error;
-    self.categories = [appDelegate.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+
+    [appDelegate.mainThreadManagedObjectContext performBlockAndWait:^{
+        NSError *error = nil;
+        self.categories = [appDelegate.mainThreadManagedObjectContext executeFetchRequest:fetchRequest error:&error];
+        if (error) {
+            NSLog(@"modelChangeHandler %@", error);
+        }
+    }];
+    
     [self.tableView reloadData];
     
     [fetchRequest release];
@@ -116,8 +122,8 @@
 {
     PhotoFrameViewController *photoFrameViewController = [[PhotoFrameViewController alloc] initWithNibName:@"PhotoFrameViewController" bundle:nil];
     
-    Categories *selectedCategory = (Categories *)[self.categories objectAtIndex:indexPath.row];
-    photoFrameViewController.categoryParseObjectId = selectedCategory.parseObjectId;
+    Category *selectedCategory = (Category *)[self.categories objectAtIndex:indexPath.row];
+    photoFrameViewController.category = selectedCategory;
     
     [self.navigationController pushViewController:photoFrameViewController animated:YES];
     [photoFrameViewController release];

@@ -14,10 +14,15 @@
 
 @property (nonatomic, retain) UINavigationController *navigationController;
 
-@property (readonly, retain, nonatomic) NSManagedObjectContext *managedObjectContext;
+@property (readonly, retain, nonatomic) NSManagedObjectContext *masterManagedObjectContext;
+@property (readonly, retain, nonatomic) NSManagedObjectContext *backgroundManagedObjectContext;
+@property (readonly, retain, nonatomic) NSManagedObjectContext *mainThreadManagedObjectContext;
 @property (readonly, retain, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (readonly, retain, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
-- (void)saveContext;
+
 - (NSURL *)applicationDocumentsDirectory;
+- (void)saveMasterContext;
+- (void)saveMainThreadContext;
+- (void)saveBackgroundContext;
 
 @end

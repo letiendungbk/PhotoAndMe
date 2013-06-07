@@ -12,8 +12,8 @@
 #import "AppModel+Parse.h"
 #import "AppModel+CoreData.h"
 #import "AppDelegate.h"
-#import "Categories.h"
-#import "PhotoFrames.h"
+#import "Category.h"
+#import "PhotoFrame.h"
 #import <Parse/Parse.h>
 #import "EffectGLViewController.h"
 
@@ -29,7 +29,6 @@
 {
     self.tableView = nil;
     self.photoFrames = nil;
-    self.categoryParseObjectId = nil;
     
     [super dealloc];
 }
@@ -37,7 +36,6 @@
 - (void)viewDidUnload {
     self.tableView = nil;
     self.photoFrames = nil;
-    self.categoryParseObjectId = nil;
     
     [super viewDidUnload];
 }
@@ -53,42 +51,23 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-//    self.photoFrames = @[
-//                        @{@"categoryCode":@"nature", @"displayName":@"Nature", @"photoURL":@"https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn1/50322_373165766042153_1840934980_q.jpg"}
-//                        ];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(modelChangeHandler) name:ModelChangeNotification object:nil];
     
-    [[AppModel getInstance] loadPhotoFrameForCategory:self.categoryParseObjectId WithCallback:^(NSArray *objects, NSError *error) {
-        if (!error) {
-            NSLog(@"loadPhotoFrameForCategory success");
-            
-            [self saveToCoreData:objects];
-            
-            self.photoFrames = objects;
-            [self.tableView reloadData];
-        } else {
-            NSLog(@"loadPhotoFrameForCategory %@ %@", error, [error userInfo]);
-        }
-    }];
-
+    [self modelChangeHandler];
 }
 
-- (void)saveToCoreData:(NSArray *)photoFrames
+- (void)modelChangeHandler
 {
-    for (PFObject *row in photoFrames) {
-        //must store parseObjectId as a field in Core Data
-        NSLog(@"objectId:%@", row.objectId);
-        
-        NSLog(@"displayName:%@", [row objectForKey:@"displayName"]);
-        PFFile *photoFile = [row objectForKey:@"photoFile"];
-        NSLog(@"photoFileURL:%@", photoFile.url);
-    }
+    //FIXME go to Core data to refresh PhotoFrame
     
+    self.photoFrames = [self.category.photoFrames allObjects];
+    [self.tableView reloadData];
 }
 
 
 - (NSString *)title
 {
-    return self.categoryParseObjectId;
+    return self.category.displayName;
 }
 
 #pragma mark - UITableViewDataSource

@@ -42,7 +42,6 @@
 						<int key="NSvFlags">274</int>
 						<string key="NSFrameSize">{320, 504}</string>
 						<reference key="NSSuperview" ref="191373211"/>
-						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="6328024"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
@@ -57,7 +56,6 @@
 						<int key="NSvFlags">274</int>
 						<string key="NSFrameSize">{320, 504}</string>
 						<reference key="NSSuperview" ref="191373211"/>
-						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="1001332790"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<object class="NSColor" key="IBUIBackgroundColor" id="629130997">
@@ -76,7 +74,6 @@
 								<int key="NSvFlags">256</int>
 								<string key="NSFrame">{{33, 84}, {30, 30}}</string>
 								<reference key="NSSuperview" ref="1001332790"/>
-								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="181772813"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<object class="NSColor" key="IBUIBackgroundColor" id="12311749">
@@ -91,7 +88,6 @@
 								<int key="NSvFlags">256</int>
 								<string key="NSFrame">{{145, 94}, {30, 30}}</string>
 								<reference key="NSSuperview" ref="1001332790"/>
-								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="898367685"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<reference key="IBUIBackgroundColor" ref="12311749"/>
@@ -103,7 +99,6 @@
 								<int key="NSvFlags">256</int>
 								<string key="NSFrame">{{9, 259}, {30, 30}}</string>
 								<reference key="NSSuperview" ref="1001332790"/>
-								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="994401857"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<reference key="IBUIBackgroundColor" ref="12311749"/>
@@ -115,7 +110,6 @@
 								<int key="NSvFlags">256</int>
 								<string key="NSFrame">{{227, 325}, {30, 30}}</string>
 								<reference key="NSSuperview" ref="1001332790"/>
-								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="409477061"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<reference key="IBUIBackgroundColor" ref="12311749"/>
@@ -127,7 +121,6 @@
 								<int key="NSvFlags">260</int>
 								<string key="NSFrame">{{36, 400}, {248, 44}}</string>
 								<reference key="NSSuperview" ref="1001332790"/>
-								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="941264708"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
@@ -163,7 +156,7 @@
 								<int key="NSvFlags">260</int>
 								<string key="NSFrame">{{36, 451}, {248, 44}}</string>
 								<reference key="NSSuperview" ref="1001332790"/>
-								<reference key="NSWindow"/>
+								<reference key="NSNextKeyView"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -183,7 +176,6 @@
 						</array>
 						<string key="NSFrameSize">{320, 504}</string>
 						<reference key="NSSuperview" ref="191373211"/>
-						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="19256515"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<reference key="IBUIBackgroundColor" ref="629130997"/>
@@ -192,7 +184,6 @@
 				</array>
 				<string key="NSFrame">{{0, 64}, {320, 504}}</string>
 				<reference key="NSSuperview"/>
-				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="451530875"/>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">3</int>
@@ -549,67 +540,7 @@
 			<nil key="sourceID"/>
 			<int key="maxID">40</int>
 		</object>
-		<object class="IBClassDescriber" key="IBDocument.Classes">
-			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
-				<object class="IBPartialClassDescription">
-					<string key="className">EffectGLView</string>
-					<string key="superclassName">UIView</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/EffectGLView.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">EffectGLViewController</string>
-					<string key="superclassName">UIViewController</string>
-					<dictionary class="NSMutableDictionary" key="actions">
-						<string key="changeBGImageHandler:">id</string>
-						<string key="changeEffectImageHandler:">id</string>
-						<string key="handlePan:">UIPanGestureRecognizer</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="actionInfosByName">
-						<object class="IBActionInfo" key="changeBGImageHandler:">
-							<string key="name">changeBGImageHandler:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="changeEffectImageHandler:">
-							<string key="name">changeEffectImageHandler:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="handlePan:">
-							<string key="name">handlePan:</string>
-							<string key="candidateClassName">UIPanGestureRecognizer</string>
-						</object>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="outlets">
-						<string key="bgImage">UIImageView</string>
-						<string key="glView">EffectGLView</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<object class="IBToOneOutletInfo" key="bgImage">
-							<string key="name">bgImage</string>
-							<string key="candidateClassName">UIImageView</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="glView">
-							<string key="name">glView</string>
-							<string key="candidateClassName">EffectGLView</string>
-						</object>
-					</dictionary>
-					<object class="NSMutableDictionary" key="toManyOutletInfosByName">
-						<string key="NS.key.0">anchorPoints</string>
-						<object class="IBToManyOutletInfo" key="NS.object.0">
-							<string key="name">anchorPoints</string>
-							<string key="candidateClassName">UIView</string>
-							<string key="collectionClassName">NSArray</string>
-						</object>
-					</object>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/EffectGLViewController.h</string>
-					</object>
-				</object>
-			</array>
-		</object>
+		<object class="IBClassDescriber" key="IBDocument.Classes"/>
 		<int key="IBDocument.localizationMode">0</int>
 		<string key="IBDocument.TargetRuntimeIdentifier">IBCocoaTouchFramework</string>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>

@@ -11,7 +11,7 @@
 
 @implementation AppModel (Parse)
 
-#pragma mark Categories table
+#pragma mark Category table
 
 - (void)loadCategoriesWithCallback:(GalleryCallbackBlock)aCallbackBlock
 {
@@ -20,9 +20,9 @@
 
 - (void)loadCategoriesFrom:(NSDate *)lastUpdateTime WithCallback:(GalleryCallbackBlock)aCallbackBlock
 {
-    PFQuery *categoriesQuery = [PFQuery queryWithClassName:@"Categories"];
+    PFQuery *categoriesQuery = [PFQuery queryWithClassName:@"Category"];
     if (lastUpdateTime != nil) {
-        [categoriesQuery whereKey:@"updatedAt" greaterThanOrEqualTo:lastUpdateTime];
+        [categoriesQuery whereKey:@"updatedAt" greaterThan:lastUpdateTime];
     }
     
     [categoriesQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
@@ -30,20 +30,30 @@
     }];
 }
 
-#pragma mark PhotoFrames table
 
-- (void)loadPhotoFrameForCategory:(NSString *)parseObjectId WithCallback:(PhotoFrameCallbackBlock)aCallbackBlock
+
+#pragma mark PhotoFrame table
+
+- (void)loadAllPhotoFramesFrom:(NSDate *)lastUpdateTime WithCallback:(PhotoFrameCallbackBlock)aCallbackBlock
 {
-    [self loadPhotoFrameForCategory:parseObjectId From:nil WithCallback:aCallbackBlock];
+    [self loadPhotoFramesForCategory:nil From:lastUpdateTime WithCallback:aCallbackBlock];
 }
 
-- (void)loadPhotoFrameForCategory:(NSString *)parseObjectId From:(NSDate *)lastUpdateTime WithCallback:(PhotoFrameCallbackBlock)aCallbackBlock
+- (void)loadPhotoFramesForCategory:(NSString *)parseObjectId WithCallback:(PhotoFrameCallbackBlock)aCallbackBlock
 {
-    PFQuery *photoFramesQuery = [PFQuery queryWithClassName:@"PhotoFrames"];
+    [self loadPhotoFramesForCategory:parseObjectId From:nil WithCallback:aCallbackBlock];
+}
+
+- (void)loadPhotoFramesForCategory:(NSString *)parseObjectId From:(NSDate *)lastUpdateTime WithCallback:(PhotoFrameCallbackBlock)aCallbackBlock
+{
+    PFQuery *photoFramesQuery = [PFQuery queryWithClassName:@"PhotoFrame"];
     
-    [photoFramesQuery whereKey:@"belongsToCategories" containsAllObjectsInArray:@[parseObjectId]];
+    if (parseObjectId != nil) {
+        [photoFramesQuery whereKey:@"belongsToCategories" containsAllObjectsInArray:@[parseObjectId]];
+    }
+    
     if (lastUpdateTime != nil) {
-        [photoFramesQuery whereKey:@"updatedAt" greaterThanOrEqualTo:lastUpdateTime];
+        [photoFramesQuery whereKey:@"updatedAt" greaterThan:lastUpdateTime];
     }
     
     [photoFramesQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
