@@ -7,6 +7,7 @@
 //
 
 #import "LazyImageView.h"
+#import "SDImageCache.h"
 
 
 @interface LazyImageView (hidden)
@@ -14,7 +15,7 @@
 @end
 
 
-static NSCache* staticImageCache;
+//static NSCache* staticImageCache;
 
 
 @implementation LazyImageView
@@ -64,9 +65,9 @@ static NSCache* staticImageCache;
     
     mLastUsedUrl = [[NSString alloc] initWithString: @""];
     
-    if (staticImageCache == nil) {
-        staticImageCache = [[NSCache alloc] init];
-    }
+//    if (staticImageCache == nil) {
+//        staticImageCache = [[NSCache alloc] init];
+//    }
 }
 
 - (id) initAndLoad: (NSString *) urlString
@@ -109,16 +110,27 @@ static NSCache* staticImageCache;
 		return;
 	}
 	
-	[mLastUsedUrl release];
-	mLastUsedUrl = [[NSString alloc] initWithString: urlString];
-	
 	[self releaseConnectionAndData];
 	
-	// check if cached image is available
-	if (mCacheEnabled && [staticImageCache objectForKey: urlString] != nil) {
-		[self imageLoaded: [staticImageCache objectForKey: urlString]];
-		return;
-	}
+    if (!mCacheEnabled) {
+        [self loadImageFromNetwork:urlString];
+        return;
+    }
+    
+    [[SDImageCache sharedImageCache] queryDiskCacheForKey:urlString done:^(UIImage *image, SDImageCacheType cacheType) {
+        if (image) {
+            [self imageLoaded: image];
+        } else {
+            [self loadImageFromNetwork:urlString];
+        }
+    }];
+	
+}
+
+- (void)loadImageFromNetwork:(NSString *)urlString
+{
+	[mLastUsedUrl release];
+	mLastUsedUrl = [[NSString alloc] initWithString: urlString];
 	
 	//mImageView.image = nil;
 	[self showActivityIndicator: YES];
@@ -128,7 +140,7 @@ static NSCache* staticImageCache;
 		[mDelegate lazyImageWillLoadImageFromUrl: urlString];
 	}
 	
-	NSURLRequest *theRequest=[NSURLRequest requestWithURL:[NSURL URLWithString:urlString] 
+	NSURLRequest *theRequest=[NSURLRequest requestWithURL:[NSURL URLWithString:urlString]
 											  cachePolicy:NSURLRequestUseProtocolCachePolicy
 										  timeoutInterval:10.0];
 	
@@ -136,8 +148,8 @@ static NSCache* staticImageCache;
 	
 	if(mConnection)
 	{
-		[mConnection scheduleInRunLoop: [NSRunLoop currentRunLoop] forMode: NSRunLoopCommonModes]; 
-		[mConnection start]; 
+		[mConnection scheduleInRunLoop: [NSRunLoop currentRunLoop] forMode: NSRunLoopCommonModes];
+		[mConnection start];
 		
 		mReceivedData = [[NSMutableData data] retain];
 	}
@@ -146,7 +158,6 @@ static NSCache* staticImageCache;
 		//LOG(@"no connection");
 	}
 }
-
 
 - (void) imageLoaded: (UIImage*) image;
 {	
@@ -194,9 +205,10 @@ static NSCache* staticImageCache;
 
 + (void) clearImageCache
 {
-    if (staticImageCache != nil) {
-        [staticImageCache removeAllObjects];
-    }
+//    if (staticImageCache != nil) {
+//        [staticImageCache removeAllObjects];
+//    }
+    [[SDImageCache sharedImageCache] clearMemory];
 }
 
 #pragma mark -
@@ -225,7 +237,8 @@ static NSCache* staticImageCache;
 		// LOG(@"Succesfully loaded Image. Now showing.");
 		
         if (mCacheEnabled) {
-            [staticImageCache setObject: loadedImage forKey: mLastUsedUrl];
+//            [staticImageCache setObject: loadedImage forKey: mLastUsedUrl];
+            [[SDImageCache sharedImageCache] storeImage:loadedImage forKey:mLastUsedUrl];
         }
 		
 		[self imageLoaded: loadedImage];

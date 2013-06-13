@@ -11,6 +11,7 @@
 #import "GalleryViewController.h"
 #import <Parse/Parse.h>
 #import "AppModel+CoreData.h"
+#import "SDImageCache.h"
 
 @implementation AppDelegate
 
@@ -23,6 +24,8 @@
 @synthesize managedObjectModel = __managedObjectModel;
 @synthesize persistentStoreCoordinator = __persistentStoreCoordinator;
 
+@synthesize sDImageCache = _sDImageCache;
+
 - (void)dealloc
 {
     [_window release];
@@ -34,6 +37,12 @@
 {
     [Parse setApplicationId:@"SGwWrNeOkEDR3paQ9pVVh9pSxKUZUESkAJVBCmHp"
                   clientKey:@"cftHNKCIxhSOVp9YqiJ9mmC5JGhtDZJq82dzLC6Y"];
+    
+    //Add a custom read-only cache path
+    self.sDImageCache = [SDImageCache sharedImageCache];
+    NSString *bundledPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"PreloadImageSystem"];
+    [[SDImageCache sharedImageCache] addReadOnlyCachePath:bundledPath];
+
     
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.

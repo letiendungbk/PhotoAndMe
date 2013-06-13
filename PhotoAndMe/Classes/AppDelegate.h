@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "SDImageCache.h"
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (retain, nonatomic) UIWindow *window;
@@ -19,6 +19,9 @@
 @property (readonly, retain, nonatomic) NSManagedObjectContext *mainThreadManagedObjectContext;
 @property (readonly, retain, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (readonly, retain, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
+
+
+@property (retain, nonatomic) SDImageCache *sDImageCache;
 
 - (NSURL *)applicationDocumentsDirectory;
 - (void)saveMasterContext;
