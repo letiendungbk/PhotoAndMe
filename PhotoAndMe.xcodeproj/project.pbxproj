@@ -25,6 +25,8 @@
 		3422C3701768DB620058D2B2 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 3422C3621768DB620058D2B2 /* UIImageView+WebCache.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		3422C3721768DC200058D2B2 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3422C3711768DC200058D2B2 /* ImageIO.framework */; };
 		3422C3861768E4470058D2B2 /* PreloadImageSystem in Resources */ = {isa = PBXBuildFile; fileRef = 3422C3851768E4470058D2B2 /* PreloadImageSystem */; };
+		3426DCB5176A04CD00CB5FEA /* AddCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3426DCB3176A04CD00CB5FEA /* AddCategoryViewController.m */; };
+		3426DCB6176A04CD00CB5FEA /* AddCategoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3426DCB4176A04CD00CB5FEA /* AddCategoryViewController.xib */; };
 		34C0CCC4175B42CA00F8BCED /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34C0CCC3175B42CA00F8BCED /* Parse.framework */; };
 		34C0CCC6175B42E400F8BCED /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34C0CCC5175B42E400F8BCED /* AudioToolbox.framework */; };
 		34C0CCC8175B42ED00F8BCED /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34C0CCC7175B42ED00F8BCED /* CFNetwork.framework */; };
@@ -117,6 +119,9 @@
 		3422C3831768E4110058D2B2 /* d4a8e578f9a538a016eaafb44102d16c */ = {isa = PBXFileReference; lastKnownFileType = file; path = d4a8e578f9a538a016eaafb44102d16c; sourceTree = "<group>"; };
 		3422C3841768E4110058D2B2 /* ef64b6d04ae10435c16afbfca1c389fd */ = {isa = PBXFileReference; lastKnownFileType = file; path = ef64b6d04ae10435c16afbfca1c389fd; sourceTree = "<group>"; };
 		3422C3851768E4470058D2B2 /* PreloadImageSystem */ = {isa = PBXFileReference; lastKnownFileType = folder; name = PreloadImageSystem; path = PhotoAndMe/Media/PreloadImageSystem; sourceTree = "<group>"; };
+		3426DCB2176A04CD00CB5FEA /* AddCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddCategoryViewController.h; sourceTree = "<group>"; };
+		3426DCB3176A04CD00CB5FEA /* AddCategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddCategoryViewController.m; sourceTree = "<group>"; };
+		3426DCB4176A04CD00CB5FEA /* AddCategoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddCategoryViewController.xib; sourceTree = "<group>"; };
 		34C0CCC3175B42CA00F8BCED /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		34C0CCC5175B42E400F8BCED /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		34C0CCC7175B42ED00F8BCED /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -270,6 +275,16 @@
 			path = PhotoAndMe/Media/PreloadImageSystem;
 			sourceTree = "<group>";
 		};
+		3426DCB1176A04CD00CB5FEA /* AddCategoryViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3426DCB2176A04CD00CB5FEA /* AddCategoryViewController.h */,
+				3426DCB3176A04CD00CB5FEA /* AddCategoryViewController.m */,
+				3426DCB4176A04CD00CB5FEA /* AddCategoryViewController.xib */,
+			);
+			path = AddCategoryViewController;
+			sourceTree = "<group>";
+		};
 		34C0CCDD175B450400F8BCED /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -284,6 +299,7 @@
 		34C0CCE0175B450400F8BCED /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				3426DCB1176A04CD00CB5FEA /* AddCategoryViewController */,
 				34C0CD02175B46A800F8BCED /* GalleryViewController */,
 				34C0CD0D175B4F3200F8BCED /* PhotoFrameViewController */,
 				34E52F0517609EC8006D9DED /* EffectGLViewController */,
@@ -542,6 +558,7 @@
 				34E52F0417609EBD006D9DED /* nature.jpeg in Resources */,
 				34E52F0F17609EC8006D9DED /* EffectGLViewController.xib in Resources */,
 				340519DC1762131900FABD9B /* PhotoAndMe.sqlite in Resources */,
+				3426DCB6176A04CD00CB5FEA /* AddCategoryViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -581,6 +598,7 @@
 				3422C36E1768DB620058D2B2 /* UIImage+MultiFormat.m in Sources */,
 				3422C36F1768DB620058D2B2 /* UIImage+WebP.m in Sources */,
 				3422C3701768DB620058D2B2 /* UIImageView+WebCache.m in Sources */,
+				3426DCB5176A04CD00CB5FEA /* AddCategoryViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

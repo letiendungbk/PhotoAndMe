@@ -34,11 +34,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "PhotoAndMe/Classes/ViewControllers/GalleryViewController/GalleryViewController.m"
-         timestampString = "392284889.43167"
+         timestampString = "392824194.489258"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "76"
-         endingLineNumber = "76"
+         startingLineNumber = "84"
+         endingLineNumber = "84"
          landmarkName = "-modelChangeHandler"
          landmarkType = "5">
       </FileBreakpoint>

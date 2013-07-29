@@ -16,6 +16,7 @@
 #import "Category.h"
 #import "PhotoFrame.h"
 #import <Parse/Parse.h>
+#import "AddCategoryViewController.h"
 
 @interface GalleryViewController ()
 
@@ -54,6 +55,13 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(modelChangeHandler) name:ModelChangeNotification object:nil];
     
     [self modelChangeHandler];
+    
+    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Add", @"")
+                                                                               style:UIBarButtonItemStyleBordered
+                                                                              target:self
+                                                                              action:@selector(addCategory)] autorelease];
+    
+
 }
 
 - (void)modelChangeHandler
@@ -129,5 +137,14 @@
     [photoFrameViewController release];
 }
 
+
+#pragma mark add Category
+- (void)addCategory
+{
+    AddCategoryViewController *addCategoryViewController = [[AddCategoryViewController alloc] initWithNibName:@"AddCategoryViewController" bundle:nil];
+    
+    [self.navigationController pushViewController:addCategoryViewController animated:YES];
+    [addCategoryViewController release];
+}
 
 @end

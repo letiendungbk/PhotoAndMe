@@ -61,4 +61,43 @@
     }];
 }
 
+#pragma mark add category
+- (void)addCategoryWithDisplayName:(NSString *)displayName ThumbFile:(UIImage *)thumbImage WithCallback:(AddCategoryCallbackBlock)aCallbackBlock
+{
+    NSData *imageData = UIImageJPEGRepresentation(thumbImage, 0.05f);
+    
+    PFFile *imageFile = [PFFile fileWithName:@"thumbFile.jpg" data:imageData];
+    
+    //HUD creation here (see example for code)
+    
+    // Save PFFile
+    [imageFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (!error) {
+            
+            // Create a PFObject around a PFFile and associate it with the current user
+            PFObject *category = [PFObject objectWithClassName:@"Category"];
+            [category setObject:imageFile forKey:@"thumbFile"];
+            [category setObject:displayName forKey:@"displayName"];
+            
+            [category saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                if (!error) {
+                    aCallbackBlock(succeeded, error);
+                }
+                else{
+                    // Log details of the failure
+                    NSLog(@"Error: %@ %@", error, [error userInfo]);
+                }
+            }];
+        }
+        else{
+            // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    } progressBlock:^(int percentDone) {
+        // Update your progress spinner here. percentDone will be between 0 and 100.
+    }];
+    
+}
+
+
 @end
