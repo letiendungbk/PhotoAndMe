@@ -12,6 +12,7 @@
 #import <OpenGLES/ES1/gl.h>
 #import <OpenGLES/ES1/glext.h>
 #import "EffectGLView.h"
+#import "PhotoFrame.h"
 
 
 // Set this value to 1 to use PVRTC compressed texture, 0 to use a PNG
@@ -29,9 +30,15 @@
 @property (retain, nonatomic) IBOutletCollection(UIView) NSArray *anchorPoints;
 @property (retain, nonatomic) UIImage *effectImage;
 @property (retain, nonatomic) IBOutlet UIImageView *bgImage;
+@property (retain, nonatomic) IBOutlet UILabel *titleLabel;
+@property (retain, nonatomic) PhotoFrame *photoFrame;
 
 - (IBAction)handlePan:(UIPanGestureRecognizer *)recognizer;
 - (IBAction)changeEffectImageHandler:(id)sender;
 - (IBAction)changeBGImageHandler:(id)sender;
+- (IBAction)backButtonTapped:(id)sender;
+- (IBAction)takePhotoButtonTapped:(id)sender;
+- (IBAction)shareButtonTapped:(id)sender;
+- (IBAction)effectButtonTapped:(id)sender;
 
 @end

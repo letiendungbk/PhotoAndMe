@@ -298,6 +298,8 @@ static inline void setupCoordinateForSegment(int hSegIndex, int vSegIndex)
     self.glView.controller = self;
 	self.glView.animationInterval = 1.0 / kRenderingFrequency;
 	[self.glView startAnimation];
+    
+    self.titleLabel.text = self.photoFrame.displayName;
 }
 
 - (void)didReceiveMemoryWarning 
@@ -371,6 +373,22 @@ static inline void setupCoordinateForSegment(int hSegIndex, int vSegIndex)
     picker.view.tag = kChooseBGImageTag;
     
     [self presentViewController:picker animated:YES completion:^{}];
+}
+
+- (IBAction)backButtonTapped:(id)sender{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (IBAction)takePhotoButtonTapped:(id)sender{
+    
+}
+
+- (IBAction)shareButtonTapped:(id)sender{
+
+}
+
+- (IBAction)effectButtonTapped:(id)sender{
+
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info

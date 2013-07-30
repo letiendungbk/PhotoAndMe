@@ -17,6 +17,9 @@
 @property (retain, nonatomic) Category *category;
 
 @property (retain, nonatomic) IBOutlet UITableView *tableView;
+@property (retain, nonatomic) IBOutlet UILabel *titleLabel;
+
+- (IBAction)backButtonTapped:(id)sender;
 
 
 @end

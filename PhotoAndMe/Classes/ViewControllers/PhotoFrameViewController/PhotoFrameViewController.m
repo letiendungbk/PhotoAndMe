@@ -54,6 +54,8 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(modelChangeHandler) name:ModelChangeNotification object:nil];
     
     [self modelChangeHandler];
+    
+    self.titleLabel.text = self.category.displayName;
 }
 
 - (void)modelChangeHandler
@@ -68,6 +70,12 @@
 - (NSString *)title
 {
     return self.category.displayName;
+}
+
+#pragma mark - IBAction
+
+- (IBAction)backButtonTapped:(id)sender{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark - UITableViewDataSource
@@ -108,7 +116,10 @@
 {
     EffectGLViewController *effectGLViewController = [[EffectGLViewController alloc] initWithNibName:@"EffectGLViewController" bundle:nil];
     
+    effectGLViewController.photoFrame = [self.photoFrames objectAtIndex:indexPath.row];
+    
     [self.navigationController pushViewController:effectGLViewController animated:YES];
+    
     [effectGLViewController release];
 }
 

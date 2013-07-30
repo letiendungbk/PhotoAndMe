@@ -48,6 +48,7 @@
     // Override point for customization after application launch.
     GalleryViewController *rootPageViewController = [[GalleryViewController alloc] initWithNibName:@"GalleryViewController" bundle:nil];
     self.navigationController = [[[UINavigationController alloc] initWithRootViewController:rootPageViewController] autorelease];
+    self.navigationController.navigationBarHidden = YES;
     [rootPageViewController release];
     
     self.window.rootViewController = self.navigationController;
