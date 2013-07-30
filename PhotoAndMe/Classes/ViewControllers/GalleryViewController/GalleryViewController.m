@@ -28,14 +28,14 @@
 
 - (void)dealloc
 {
-    self.tableView = nil;
+
     self.categories = nil;
     
     [super dealloc];
 }
 
 - (void)viewDidUnload {
-    self.tableView = nil;
+
     self.categories = nil;
     
     [super viewDidUnload];
@@ -81,7 +81,7 @@
         }
     }];
     
-    [self.tableView reloadData];
+    [self.contentTableView reloadData];
     
     [fetchRequest release];
 }

@@ -113,6 +113,9 @@
 		BDA3A94217A78C0C00DAC938 /* iPhone_save@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BDA3A92A17A78C0B00DAC938 /* iPhone_save@2x.png */; };
 		BDA3A94317A78C0C00DAC938 /* iPhone_camera.png in Resources */ = {isa = PBXBuildFile; fileRef = BDA3A92B17A78C0B00DAC938 /* iPhone_camera.png */; };
 		BDA3A94417A78C0C00DAC938 /* iPhone_camera@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BDA3A92C17A78C0B00DAC938 /* iPhone_camera@2x.png */; };
+		BDA3A94917A7985000DAC938 /* iphone_pull-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = BDA3A94817A7984F00DAC938 /* iphone_pull-arrow.png */; };
+		BDA3A94A17A798E500DAC938 /* PullRefreshTableViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = BDA3A94617A7982900DAC938 /* PullRefreshTableViewController.h */; };
+		BDA3A94B17A798E500DAC938 /* PullRefreshTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDA3A94717A7982A00DAC938 /* PullRefreshTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -266,6 +269,9 @@
 		BDA3A92A17A78C0B00DAC938 /* iPhone_save@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPhone_save@2x.png"; sourceTree = "<group>"; };
 		BDA3A92B17A78C0B00DAC938 /* iPhone_camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iPhone_camera.png; sourceTree = "<group>"; };
 		BDA3A92C17A78C0B00DAC938 /* iPhone_camera@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPhone_camera@2x.png"; sourceTree = "<group>"; };
+		BDA3A94617A7982900DAC938 /* PullRefreshTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PullRefreshTableViewController.h; sourceTree = "<group>"; };
+		BDA3A94717A7982A00DAC938 /* PullRefreshTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PullRefreshTableViewController.m; sourceTree = "<group>"; };
+		BDA3A94817A7984F00DAC938 /* iphone_pull-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iphone_pull-arrow.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -381,6 +387,8 @@
 		34C0CCE0175B450400F8BCED /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				BDA3A94617A7982900DAC938 /* PullRefreshTableViewController.h */,
+				BDA3A94717A7982A00DAC938 /* PullRefreshTableViewController.m */,
 				3426DCB1176A04CD00CB5FEA /* AddCategoryViewController */,
 				34C0CD02175B46A800F8BCED /* GalleryViewController */,
 				34C0CD0D175B4F3200F8BCED /* PhotoFrameViewController */,
@@ -578,6 +586,7 @@
 		BDA3A8F217A7871800DAC938 /* Layout */ = {
 			isa = PBXGroup;
 			children = (
+				BDA3A94817A7984F00DAC938 /* iphone_pull-arrow.png */,
 				BDA3A91517A78BFC00DAC938 /* iPhone_arrow_left.png */,
 				BDA3A91617A78BFD00DAC938 /* iPhone_arrow_left@2x.png */,
 				BDA3A91717A78BFE00DAC938 /* iPhone_picture.png */,
@@ -731,6 +740,7 @@
 				BDA3A94217A78C0C00DAC938 /* iPhone_save@2x.png in Resources */,
 				BDA3A94317A78C0C00DAC938 /* iPhone_camera.png in Resources */,
 				BDA3A94417A78C0C00DAC938 /* iPhone_camera@2x.png in Resources */,
+				BDA3A94917A7985000DAC938 /* iphone_pull-arrow.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -741,6 +751,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDA3A94A17A798E500DAC938 /* PullRefreshTableViewController.h in Sources */,
+				BDA3A94B17A798E500DAC938 /* PullRefreshTableViewController.m in Sources */,
 				34ECED84175A566800B5A17E /* main.m in Sources */,
 				34C0CCF4175B450400F8BCED /* AppDelegate.m in Sources */,
 				34C0CCFB175B450400F8BCED /* LazyImageView.m in Sources */,

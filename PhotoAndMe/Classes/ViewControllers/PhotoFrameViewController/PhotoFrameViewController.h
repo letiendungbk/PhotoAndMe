@@ -8,15 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "Category.h"
+#import "PullRefreshTableViewController.h"
 
-@interface PhotoFrameViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface PhotoFrameViewController : PullRefreshTableViewController <UITableViewDelegate, UITableViewDataSource>
 {
     
 }
 
 @property (retain, nonatomic) Category *category;
 
-@property (retain, nonatomic) IBOutlet UITableView *tableView;
 @property (retain, nonatomic) IBOutlet UILabel *titleLabel;
 
 - (IBAction)backButtonTapped:(id)sender;

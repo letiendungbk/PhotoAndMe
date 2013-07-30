@@ -7,13 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PullRefreshTableViewController.h"
 
-@interface GalleryViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface GalleryViewController : PullRefreshTableViewController <UITableViewDelegate, UITableViewDataSource>
 {
     
 }
 
-@property (retain, nonatomic) IBOutlet UITableView *tableView;
 
 
 @end

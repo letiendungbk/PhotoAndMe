@@ -27,14 +27,14 @@
 
 - (void)dealloc
 {
-    self.tableView = nil;
+
     self.photoFrames = nil;
     
     [super dealloc];
 }
 
 - (void)viewDidUnload {
-    self.tableView = nil;
+
     self.photoFrames = nil;
     
     [super viewDidUnload];
@@ -63,7 +63,7 @@
     //FIXME go to Core data to refresh PhotoFrame
     
     self.photoFrames = [self.category.photoFrames allObjects];
-    [self.tableView reloadData];
+    [self.contentTableView reloadData];
 }
 
 
